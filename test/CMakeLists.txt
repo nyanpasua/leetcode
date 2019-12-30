@@ -11,6 +11,7 @@ set(SOURCE_FILES
         src/gtest_main.cc
         src/test_api.cpp
         src/gtest_helper.cpp
+        src/problems/test_3.cpp
         )
 # 添加依赖
 ## base deps

@@ -4,7 +4,7 @@ include(cmake/hobot_util.cmake)
 # 项目名称
 project(leetcode)
 set(CMAKE_CXX_STANDARD 11)
-option(RELEASE_LIB "build version of release" ON)
+option(RELEASE_LIB "build version of release" OFF)
 
 if (${PLATFORM_MAC})
     add_definitions(-DHR_POSIX)
@@ -30,8 +30,10 @@ endif ()
 # 编译模式
 if (${RELEASE_LIB})
     set(CMAKE_BUILD_TYPE Release)
+    add_definitions(-DCMAKE_BUILD_TYPE=Release)
 else ()
     set(CMAKE_BUILD_TYPE Debug)
+    add_definitions(-DCMAKE_BUILD_TYPE=Debug)
 endif ()
 
 # 编译参数
@@ -63,6 +65,7 @@ file(GLOB PROJECT_INC
 file(GLOB PROJECT_SRC
         "src/leetcode/*.cpp"
         "src/utils/*.cpp"
+        "src/problems/*.cpp"
         )
 
 set(SOURCE_FILES

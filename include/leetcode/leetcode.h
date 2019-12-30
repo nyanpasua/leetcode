@@ -10,13 +10,19 @@
  */
 #ifndef INCLUDE_LEETCODE_LEETCODE_H_
 #define INCLUDE_LEETCODE_LEETCODE_H_
-
+#include <string>
 namespace horizon {
 namespace leetcode {
 
 class HelloWorldLEETCODE {
  public:
   HelloWorldLEETCODE();
+};
+
+class Solution {
+ public:
+  Solution() = default;
+  static int lengthOfLongestSubstring(const std::string& s);
 };
 
 }  // namespace leetcode
