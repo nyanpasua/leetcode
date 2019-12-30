@@ -1,0 +1,11 @@
+{
+    "linters": {
+        "sample": {
+            "type": "cpplint",
+            "severity": {
+                "build/c++11": "disabled"
+            },
+            "include": ["(\\.h$)", "(\\.cc$)", "(\\.cpp$)"]
+        }
+    }
+}

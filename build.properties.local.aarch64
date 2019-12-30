@@ -1,0 +1,21 @@
+# local config sample
+# copy this file to build.properties.local
+# same as config in `build.properties` but with high priority
+
+#vendor centos
+#toolchain gcc-4.8.5
+
+# AP
+#architecture arm
+#vendor hi3519
+#cmake_c_compiler /opt/hisi-linux/x86-arm/arm-hisiv500-linux/target/bin/arm-hisiv500-linux-gcc
+#cmake_cxx_compiler /opt/hisi-linux/x86-arm/arm-hisiv500-linux/target/bin/arm-hisiv500-linux-g++
+
+# CP
+architecture aarch64
+vendor linaro
+toolchain gcc-6.5.0
+cmake_c_compiler /opt/gcc-linaro-6.5.0-2018.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-gcc
+cmake_cxx_compiler /opt/gcc-linaro-6.5.0-2018.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-g++
+
+artifact1 third_party.google.googletest:gtest:1.8.0:zip:false
