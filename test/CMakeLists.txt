@@ -11,7 +11,10 @@ set(SOURCE_FILES
         src/gtest_main.cc
         src/test_api.cpp
         src/gtest_helper.cpp
-        src/problems/test_3.cpp
+        #src/problems/test_3.cpp
+        #src/problems/test_438.cpp
+        #src/problems/test_76.cpp
+        src/problems/test_283.cpp
         )
 # 添加依赖
 ## base deps

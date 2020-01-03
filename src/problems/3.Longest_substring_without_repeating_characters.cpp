@@ -24,7 +24,7 @@ repeating characters.
 #include "leetcode/leetcode.h"
 namespace horizon {
 namespace leetcode {
-int Solution::lengthOfLongestSubstring(const std::string& s) {
+int lengthOfLongestSubstring(const std::string& s) {
   auto front = s.cbegin();
   auto back = s.cbegin();
   auto end = s.cend();

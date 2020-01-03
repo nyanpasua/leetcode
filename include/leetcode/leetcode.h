@@ -11,19 +11,21 @@
 #ifndef INCLUDE_LEETCODE_LEETCODE_H_
 #define INCLUDE_LEETCODE_LEETCODE_H_
 #include <string>
+#include <vector>
 namespace horizon {
 namespace leetcode {
+using std::string;
+using std::vector;
 
 class HelloWorldLEETCODE {
  public:
   HelloWorldLEETCODE();
 };
 
-class Solution {
- public:
-  Solution() = default;
-  static int lengthOfLongestSubstring(const std::string& s);
-};
+int lengthOfLongestSubstring(const std::string& s);
+vector<int> findAnagrams(string s, string p);
+string minWindow(string s, string t);
+void moveZeroes(vector<int>& nums);
 
 }  // namespace leetcode
 }  // namespace horizon
