@@ -26,6 +26,9 @@ int lengthOfLongestSubstring(const std::string& s);
 vector<int> findAnagrams(string s, string p);
 string minWindow(string s, string t);
 void moveZeroes(vector<int>& nums);
+int removeDuplicates(vector<int>& nums);
+int removeElement(vector<int>& nums, int val);
+int removeDuplicatesII(vector<int>& nums);
 
 }  // namespace leetcode
 }  // namespace horizon
