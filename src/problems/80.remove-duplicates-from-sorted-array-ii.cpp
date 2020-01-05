@@ -4,8 +4,8 @@
 #include "leetcode/leetcode.h"
 namespace horizon {
 namespace leetcode {
-
-int removeDuplicatesII(vector<int>& nums) {
+namespace II {
+int removeDuplicates(vector<int>& nums) {
   if (nums.empty()) {
     return 0;
   }
@@ -24,5 +24,6 @@ int removeDuplicatesII(vector<int>& nums) {
   }
   return ++target;
 }
+}  // namespace II
 }  // namespace leetcode
 }  // namespace horizon

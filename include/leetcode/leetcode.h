@@ -21,15 +21,26 @@ class HelloWorldLEETCODE {
  public:
   HelloWorldLEETCODE();
 };
-
+/// \brief 3 滑动窗口
 int lengthOfLongestSubstring(const std::string& s);
+/// \brief 438 滑动窗口
 vector<int> findAnagrams(string s, string p);
+/// \brief 76 滑动窗口
 string minWindow(string s, string t);
+/// \brief 283 滑动窗口
 void moveZeroes(vector<int>& nums);
+/// \brief 26 快慢指针
 int removeDuplicates(vector<int>& nums);
+/// \brief 27 快慢指针
 int removeElement(vector<int>& nums, int val);
-int removeDuplicatesII(vector<int>& nums);
-
+namespace II {
+/// \brief 80 快慢指针
+int removeDuplicates(vector<int>& nums);
+}
+/// \brief 75 partition
+void sortColors(vector<int>& nums);
+/// \brief 88 merge
+void merge(vector<int>& nums1, int m, vector<int>& nums2, int n);
 }  // namespace leetcode
 }  // namespace horizon
 
