@@ -18,8 +18,11 @@
  * Space: O(1)
  */
 #include "leetcode/leetcode.h"
+#include <queue>
 namespace horizon {
 namespace leetcode {
-int findKthLargest(vector<int>& nums, int k) {}
+int findKthLargest(vector<int>& nums, int k) {
+  std::priority_queue<>
+}
 }  // namespace leetcode
 }  // namespace horizon
