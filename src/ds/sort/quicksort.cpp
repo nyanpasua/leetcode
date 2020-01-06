@@ -9,3 +9,5 @@ void QuickSort(vector<int> &nums) {
 void QuickSort3way(vector<int> &nums) {
 
 }
+void MergeSort(vector<int> &nums) {}
+void HeapSort(vector<int> &nums) {}

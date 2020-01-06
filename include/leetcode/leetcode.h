@@ -41,6 +41,8 @@ int removeDuplicates(vector<int>& nums);
 void sortColors(vector<int>& nums);
 /// \brief 88 merge
 void merge(vector<int>& nums1, int m, vector<int>& nums2, int n);
+/// \brief 215 heap
+int findKthLargest(vector<int>& nums, int k);
 }  // namespace leetcode
 }  // namespace horizon
 

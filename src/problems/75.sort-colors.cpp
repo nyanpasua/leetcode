@@ -8,6 +8,8 @@
  */
 
 #include "leetcode/leetcode.h"
+namespace horizon {
+namespace leetcode {
 void sortColors(vector<int>& nums) {
   int lt = -1;
   int eq = 0;
@@ -24,3 +26,6 @@ void sortColors(vector<int>& nums) {
     }
   }
 }
+}  // namespace leetcode
+}  // namespace horizon
+

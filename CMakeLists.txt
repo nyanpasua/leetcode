@@ -59,6 +59,7 @@ file(GLOB PROJECT_INC
         "include/*.hpp"
         "include/leetcode/*.h"
         "include/leetcode/utils/*.h"
+        "include/leetcode/data_structure/*.h"
         )
 
 # 源文件路径信息
@@ -66,6 +67,7 @@ file(GLOB PROJECT_SRC
         "src/leetcode/*.cpp"
         "src/utils/*.cpp"
         "src/problems/*.cpp"
+        "src/ds/sort/*.cpp"
         )
 
 set(SOURCE_FILES
