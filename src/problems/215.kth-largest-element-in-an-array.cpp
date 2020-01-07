@@ -15,14 +15,22 @@
 /*!
  * @brief https://leetcode-cn.com/problems/kth-largest-element-in-an-array/
  * Time: O(nlogk)
- * Space: O(1)
+ * Space: O(k)
  */
-#include "leetcode/leetcode.h"
 #include <queue>
+
+#include "leetcode/leetcode.h"
 namespace horizon {
 namespace leetcode {
 int findKthLargest(vector<int>& nums, int k) {
-  std::priority_queue<>
+  std::priority_queue<int, vector<int>, std::greater<int>> min_heap;
+  for (const auto& num : nums) {
+    min_heap.push(num);
+    if (min_heap.size() > k) {
+      min_heap.pop();
+    }
+  }
+  return min_heap.top();
 }
 }  // namespace leetcode
 }  // namespace horizon
