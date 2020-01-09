@@ -45,6 +45,8 @@ void merge(vector<int>& nums1, int m, vector<int>& nums2, int n);
 int findKthLargest(vector<int>& nums, int k);
 /// \brief 11 对撞指针
 int maxArea(vector<int>& height);
+/// \brief 209 滑动窗口
+int minSubArrayLen(int s, vector<int>& nums);
 }  // namespace leetcode
 }  // namespace horizon
 
