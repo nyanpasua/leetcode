@@ -47,6 +47,12 @@ int findKthLargest(vector<int>& nums, int k);
 int maxArea(vector<int>& height);
 /// \brief 209 滑动窗口
 int minSubArrayLen(int s, vector<int>& nums);
+/// \brief 451 查找表
+string frequencySort(string s);
+/// \brief 454 查找表
+namespace II {
+int fourSumCount(vector<int>& A, vector<int>& B, vector<int>& C, vector<int>& D);
+}
 }  // namespace leetcode
 }  // namespace horizon
 
