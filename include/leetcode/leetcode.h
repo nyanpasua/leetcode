@@ -27,13 +27,13 @@ class HelloWorldLEETCODE {
  public:
   HelloWorldLEETCODE();
 };
-/// \brief 3 滑动窗口
+/// \brief 3 在滑动窗口中做记录
 int lengthOfLongestSubstring(const std::string& s);
-/// \brief 438 滑动窗口
+/// \brief 438 在滑动窗口中做记录
 vector<int> findAnagrams(string s, string p);
-/// \brief 76 滑动窗口
+/// \brief 76 在滑动窗口中做记录
 string minWindow(string s, string t);
-/// \brief 283 滑动窗口
+/// \brief 283 快慢指针
 void moveZeroes(vector<int>& nums);
 /// \brief 26 快慢指针
 int removeDuplicates(vector<int>& nums);
