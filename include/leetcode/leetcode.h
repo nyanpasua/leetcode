@@ -10,7 +10,13 @@
  */
 #ifndef INCLUDE_LEETCODE_LEETCODE_H_
 #define INCLUDE_LEETCODE_LEETCODE_H_
+#include <algorithm>
+#include <cassert>
+#include <iostream>
+#include <queue>
 #include <string>
+#include <unordered_map>
+#include <unordered_set>
 #include <vector>
 namespace horizon {
 namespace leetcode {
@@ -36,7 +42,7 @@ int removeElement(vector<int>& nums, int val);
 namespace II {
 /// \brief 80 快慢指针
 int removeDuplicates(vector<int>& nums);
-}
+}  // namespace II
 /// \brief 75 partition
 void sortColors(vector<int>& nums);
 /// \brief 88 merge
@@ -51,9 +57,21 @@ int minSubArrayLen(int s, vector<int>& nums);
 string frequencySort(string s);
 /// \brief 454 查找表
 namespace II {
-int fourSumCount(vector<int>& A, vector<int>& B, vector<int>& C, vector<int>& D);
+int fourSumCount(vector<int>& A, vector<int>& B, vector<int>& C,
+                 vector<int>& D);
 }
+/// \brief 49 查找表
+vector<vector<string>> groupAnagrams(vector<string>& strs);
+/// \brief 447 查找表
+int numberOfBoomerangs(vector<vector<int>>& points);
+
+/// \brief 149 查找表
+int maxPoints(vector<vector<int>>& points);
 }  // namespace leetcode
 }  // namespace horizon
-
+/*!
+ * @brief url
+ * Time:
+ * Space:
+ */
 #endif  // INCLUDE_LEETCODE_LEETCODE_H_
