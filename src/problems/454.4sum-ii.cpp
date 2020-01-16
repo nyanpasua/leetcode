@@ -21,9 +21,11 @@
 #include "leetcode/leetcode.h"
 namespace horizon {
 namespace leetcode {
+namespace II {
 int fourSumCount(vector<int>& A, vector<int>& B, vector<int>& C,
                  vector<int>& D) {
   assert(A.size() == B.size() && B.size() == C.size() && C.size() == D.size());
 }
+}  // namespace II
 }  // namespace leetcode
 }  // namespace horizon

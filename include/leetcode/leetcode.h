@@ -67,6 +67,11 @@ int numberOfBoomerangs(vector<vector<int>>& points);
 
 /// \brief 149 查找表
 int maxPoints(vector<vector<int>>& points);
+
+/// \brief 219 查找表
+namespace II {
+bool containsNearbyDuplicate(vector<int>& nums, int k);
+}
 }  // namespace leetcode
 }  // namespace horizon
 /*!
