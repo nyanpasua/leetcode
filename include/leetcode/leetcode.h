@@ -72,6 +72,9 @@ int maxPoints(vector<vector<int>>& points);
 namespace II {
 bool containsNearbyDuplicate(vector<int>& nums, int k);
 }
+/// \brief 217 查找表
+bool containsDuplicate(vector<int>& nums);
+
 }  // namespace leetcode
 }  // namespace horizon
 /*!
