@@ -49,22 +49,30 @@ class Solution {
 
 // 动态规划
 class Solution {
- private:
-  size_t height_;
-  size_t width_;
-  // 判断(x, y)是否在矩形范围内
-  bool isArea(size_t x, size_t y) {
-    return x >= 0 && x < height_ && y >= 0 && y < width_;
-  }
-  // 上左顺序的位置偏移量，顺时针方向
-  vector<vector<int>> pos_offset{{-1, 0}, {0, -1}};
-
  public:
   int minPathSum(vector<vector<int>>& grid) {
-    height_ = grid.size();
-    if (height_ == 0) {
-      return 0;
+    if (grid.empty()) {return 0;}
+    size_t height = grid.size();
+    size_t width = grid[0].size();
+    // 初始化memo矩阵
+    vector<vector<int>> memo(height, vector<int>(width, -1));
+    // base case
+    memo[0][0] = grid[0][0];
+    // base case, height方向
+    for (size_t i = 1; i < height; ++i) {
+      memo[i][0] = memo[i - 1][0] + grid[i][0];
     }
-    width_ = grid[0].size();
+    // base case, width方向
+    for (size_t j = 1; j < width; ++j) {
+      memo[0][j] = memo[0][j - 1] + grid[0][j];
+    }
+    // 状态转移迭代求解
+    for (size_t i = 1; i < height; ++i) {
+      for (size_t j = 1; j < width; ++j) {
+        memo[i][j] = std::min(memo[i - 1][j], memo[i][j - 1]) + grid[i][j];
+      }
+    }
+    return memo[height - 1][width - 1];
   }
+
 };
