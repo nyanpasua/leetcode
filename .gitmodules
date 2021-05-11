@@ -4,3 +4,6 @@
 [submodule "3rdparty/leetcode_go"]
 	path = 3rdparty/leetcode_go
 	url = https://github.com/halfrost/LeetCode-Go.git
+[submodule "3rdparty/leetcode_modern_cpp"]
+	path = 3rdparty/leetcode_modern_cpp
+	url = https://github.com/kamyu104/LeetCode-Solutions.git
