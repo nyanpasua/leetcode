@@ -59,7 +59,7 @@ file(GLOB PROJECT_INC
         "include/*.hpp"
         "include/leetcode/*.h"
         "include/leetcode/utils/*.h"
-        "include/leetcode/data_structure/*.h"
+        "src/data_structure/*.h"
         )
 
 # 源文件路径信息

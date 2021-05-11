@@ -1,0 +1,6 @@
+[submodule "3rdparty/data_structure"]
+	path = 3rdparty/data_structure
+	url = https://github.com/liuyubobobo/Play-with-Algorithms.git
+[submodule "3rdparty/leetcode_go"]
+	path = 3rdparty/leetcode_go
+	url = https://github.com/halfrost/LeetCode-Go.git

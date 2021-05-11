@@ -3,7 +3,7 @@
 //
 class Solution {
  public:
-  int longestCommonSubsequence(string text1, string text2) {
+  int SubString(string text1, string text2) {
     size_t height = text1.size() + 1;
     size_t width = text2.size() + 1;
     // base case:
