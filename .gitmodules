@@ -7,3 +7,6 @@
 [submodule "3rdparty/leetcode_modern_cpp"]
 	path = 3rdparty/leetcode_modern_cpp
 	url = https://github.com/kamyu104/LeetCode-Solutions.git
+[submodule "3rdparty/play_leetcode"]
+	path = 3rdparty/play_leetcode
+	url = https://github.com/liuyubobobo/Play-Leetcode.git
