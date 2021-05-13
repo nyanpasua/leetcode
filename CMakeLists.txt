@@ -31,7 +31,7 @@ link_directories(
         ${PROJECT_SOURCE_DIR}/third_party/lib
 )
 # 头文件路径信息
-file(GLOB PROJECT_INC
+file(GLOB_RECURSE PROJECT_INC
         "include/*.h"
         "include/*.hpp"
         )
@@ -40,6 +40,8 @@ file(GLOB PROJECT_INC
 file(GLOB_RECURSE PROJECT_SRC
         "src/*.cpp"
         "src/*.cc"
+        "src/*.h"
+        "src/*.hpp"
         )
 
 set(SOURCE_FILES
@@ -48,8 +50,6 @@ set(SOURCE_FILES
         )
 
 add_library(${CMAKE_PROJECT_NAME} SHARED ${SOURCE_FILES})
-
-add_subdirectory(test)
 
 set(OUTPUT_ROOT ${PROJECT_SOURCE_DIR}/output)
 set(MY_OUTPUT_ROOT ${OUTPUT_ROOT}/${CMAKE_PROJECT_NAME})
