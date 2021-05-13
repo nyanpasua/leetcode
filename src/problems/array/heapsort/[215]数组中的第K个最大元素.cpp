@@ -1,8 +1,10 @@
-/*!
- * @brief https://leetcode-cn.com/problems/kth-largest-element-in-an-array/
- * Time: O(nlogk)
- * Space: O(k)
+/*
+ * @lc app=leetcode.cn id=215 lang=cpp
+ *
+ * [215] 数组中的第K个最大元素
  */
+
+//leetcode submit region begin(Prohibit modification and deletion)
 #include <functional>
 #include <queue>
 using std::vector;
@@ -30,3 +32,4 @@ class Solution {
     return min_heap.top();
   }
 };
+//leetcode submit region end(Prohibit modification and deletion)
