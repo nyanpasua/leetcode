@@ -15,9 +15,6 @@ nums 和一个值val，你需要原地移除所有数值等于 val 的元素�
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 
-#include "leetcode/leetcode.h"
-namespace horizon {
-namespace leetcode {
 
 int removeElement(vector<int>& nums, int val) {
   size_t target = 0;
@@ -28,5 +25,3 @@ int removeElement(vector<int>& nums, int val) {
   }
   return target;
 }
-}  // namespace leetcode
-}  // namespace horizon

@@ -9,10 +9,6 @@ Do not allocate extra space for another array, you must do this by modifying the
 input array in-place with O(1) extra memory.
  */
 
-#include "leetcode/leetcode.h"
-namespace horizon {
-namespace leetcode {
-
 int removeDuplicates(vector<int>& nums) {
   if (nums.empty()){
     return 0;
@@ -25,5 +21,3 @@ int removeDuplicates(vector<int>& nums) {
   }
   return ++target;
 }
-}  // namespace leetcode
-}  // namespace horizon

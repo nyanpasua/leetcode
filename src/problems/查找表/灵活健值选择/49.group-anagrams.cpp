@@ -11,9 +11,6 @@
 #include <unordered_map>
 #include <vector>
 
-#include "leetcode/leetcode.h"
-namespace horizon {
-namespace leetcode {
 vector<vector<string>> groupAnagrams(vector<string> &strs) {
   std::unordered_map<std::string, std::vector<int>> counter;
   auto copy_strs = strs;
@@ -31,5 +28,3 @@ vector<vector<string>> groupAnagrams(vector<string> &strs) {
   }
   return ret;
 }
-}  // namespace leetcode
-}  // namespace horizon

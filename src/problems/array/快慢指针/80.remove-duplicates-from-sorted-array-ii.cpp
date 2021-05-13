@@ -1,10 +1,6 @@
 //
 // Created by liyingmin on 2020/1/5.
 //
-#include "leetcode/leetcode.h"
-namespace horizon {
-namespace leetcode {
-namespace II {
 int removeDuplicates(vector<int>& nums) {
   if (nums.empty()) {
     return 0;
@@ -24,6 +20,3 @@ int removeDuplicates(vector<int>& nums) {
   }
   return ++target;
 }
-}  // namespace II
-}  // namespace leetcode
-}  // namespace horizon

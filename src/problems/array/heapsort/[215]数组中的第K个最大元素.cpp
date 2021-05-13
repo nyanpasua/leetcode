@@ -4,7 +4,7 @@
  * [215] 数组中的第K个最大元素
  */
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// leetcode submit region begin(Prohibit modification and deletion)
 #include <functional>
 #include <queue>
 using std::vector;
@@ -32,4 +32,4 @@ class Solution {
     return min_heap.top();
   }
 };
-//leetcode submit region end(Prohibit modification and deletion)
+// leetcode submit region end(Prohibit modification and deletion)
