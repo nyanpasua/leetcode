@@ -26,3 +26,6 @@ dist
 Thumbs.db
 ehthumbs.db
 Desktop.ini
+
+# for leetcode online
+/src/problems/online
