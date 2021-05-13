@@ -1,11 +1,9 @@
-cmake_minimum_required(VERSION 2.8)
-include(cmake/hobot_util.cmake)
-
+cmake_minimum_required(VERSION 3.1)
 # 项目名称
 project(leetcode)
 set(CMAKE_CXX_STANDARD 11)
 option(RELEASE_LIB "build version of release" OFF)
-
+set(PLATFORM_MAC TRUE)
 if (${PLATFORM_MAC})
     add_definitions(-DHR_POSIX)
     add_definitions(-DHR_MAC)
@@ -57,17 +55,12 @@ link_directories(
 file(GLOB PROJECT_INC
         "include/*.h"
         "include/*.hpp"
-        "include/leetcode/*.h"
-        "include/leetcode/utils/*.h"
-        "src/data_structure/*.h"
         )
 
 # 源文件路径信息
-file(GLOB PROJECT_SRC
-        "src/leetcode/*.cpp"
-        "src/utils/*.cpp"
-        "src/problems/*.cpp"
-        "src/ds/sort/*.cpp"
+file(GLOB_RECURSE PROJECT_SRC
+        "src/*.cpp"
+        "src/*.cc"
         )
 
 set(SOURCE_FILES

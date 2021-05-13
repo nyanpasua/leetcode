@@ -7,7 +7,6 @@
  * Space: O(1)
  */
 
-#include "leetcode/leetcode.h"
 namespace horizon {
 namespace leetcode {
 void sortColors(vector<int>& nums) {
