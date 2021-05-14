@@ -7,6 +7,8 @@
 //输出：[null,null,3,-1]
 //
 #include <stack>
+/// 此题要注意：入队列直接向尾栈 push，而出队列，需要分两种情况：1）如果头栈有元素，直接 pop
+/// 2）如果头栈没有元素，需要将 tail 栈中全部元素弹出，进入 head 栈，然后再 pop
 class CQueue {
  public:
   CQueue() {}
@@ -20,6 +22,7 @@ class CQueue {
       return head;
     } else {
       if (tail_.empty()) {
+        // tail 为空，则说明队列为空，返回 -1
         return -1;
       } else {
         // 将 tail 栈中所有元素入栈 head
