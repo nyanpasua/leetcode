@@ -15,7 +15,7 @@ third_module
 cmake-build-debug
 cmake-build-release
 build.properties.local
-
+cmake-build*
 # for python
 *.py[cod]
 *.egg
