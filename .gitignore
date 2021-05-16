@@ -14,6 +14,7 @@ third_module
 .vscode
 cmake-build-debug
 cmake-build-release
+cmake-build-debug-system
 build.properties.local
 cmake-build*
 # for python

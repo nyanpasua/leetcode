@@ -109,14 +109,12 @@ class Solution {
     // 找右侧边界，开区间
     while (l < r) {
       auto mid = l + (r - l) / 2;
-      if (nums[mid] < target) {
+      if (nums[mid] <= target) {
         // 向右侧找
         l = mid + 1;
-      } else if (nums[mid] > target) {
+      } else {
         // 向左侧找
         r = mid;
-      } else {
-        l = mid + 1;
       }
     }
     return static_cast<int>(r);
