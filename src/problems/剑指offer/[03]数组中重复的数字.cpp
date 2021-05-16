@@ -11,6 +11,8 @@ using std::vector;
 /// 但是题目中一个条件没有利用到，就是所有数字的取值范围都在 0~n-1
 /// 因此，题目中元素的索引和值 是 一对多 的关系；如果不重复，则是 一对一 的关系
 /// 如果不重复，由于 index 和 value，排序后是一一对应的，原地交换排序，复杂度 O(n)
+/// Time: O(n)，n 为 nums 数组的元素个数
+/// Space: O(1)
 class Solution {
  public:
   int findRepeatNumber(vector<int>& nums) {
