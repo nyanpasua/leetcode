@@ -14,9 +14,10 @@ class Solution {
     }
     int flag = 1;
     // must add (), == precedence before &
-    while ((flag & xor_res) == 0) {
-      flag <<= 1;
-    }
+    //   while ((flag & xor_res) == 0) {
+    //     flag <<= 1;
+    //   }
+    flag = xor_res & ((xor_res - 1) ^ -1);
     int num1 = 0, num2 = 0;
     for (const auto& num : nums) {
       if (num & flag)
