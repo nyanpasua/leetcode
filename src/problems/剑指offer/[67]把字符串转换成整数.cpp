@@ -28,10 +28,45 @@
 // 输入: "-91283472332"
 //输出: -2147483648
 //解释: 数字 "-91283472332" 超过 32 位有符号整数范围。
-//     因此返回 INT_MIN (−231) 。
+//     因此返回 INT_MIN (−2^31) 。
 //
-
+#include <limits>
+#include <string>
+using std::string;
 class Solution {
  public:
-  int strToInt(string str) {}
+  int strToInt(string str) {
+    if (str.empty()) return 0;
+    int sign = 1, i = 0;
+    int res = 0;
+    // 跳过前面的空格
+    while (i < str.size() && str[i] == ' ') {
+      ++i;
+    }
+    // 判断符号位
+    while (i < str.size() && (str[i] == '-' || str[i] == '+')) {
+      if (str[i] == '-') sign = -1;
+      ++i;
+      break;
+    }
+    // 读取数字，直到遇到第一个非数字字符，跳出循环
+    while (i < str.size()) {
+      if (str[i] >= '0' && str[i] <= '9') {
+        // 判断数值是否已经超过 int 范围
+        if (res > std::numeric_limits<int>::max() / 10 ||
+            (res == std::numeric_limits<int>::max() / 10 && str[i] > '7')) {
+          return sign == 1 ? std::numeric_limits<int>::max()
+                           : std::numeric_limits<int>::min();
+        }
+        // 是数字，读取并装换整数
+        res = res * 10 + (str[i] - '0');
+      } else {
+        // 不是数字，直接跳出循环
+        break;
+      }
+      ++i;
+    }
+    // 返回结果
+    return res * sign;
+  }
 };
