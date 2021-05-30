@@ -7,9 +7,12 @@ using std::string;
 
 // 动态规划
 // 可以转换为 反序后 LCS 问题
+// Time: O(N^2) Space: O(N^2) --> O(N)
 class Solution1 {
  public:
-  string longestPalindrome(string s) {}
+  string longestPalindrome(string s) {
+
+  }
 };
 
 // 时间复杂度 O(N^2)，空间复杂度 O(1)
