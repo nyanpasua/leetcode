@@ -1,6 +1,17 @@
 //
 // Created by liyingmin on 2020/3/30.
 //
+
+#include <string>
+using std::string;
+
+// 动态规划
+// 可以转换为 反序后 LCS 问题
+class Solution1 {
+ public:
+  string longestPalindrome(string s) {}
+};
+
 // 时间复杂度 O(N^2)，空间复杂度 O(1)
 class Solution {
  private:
