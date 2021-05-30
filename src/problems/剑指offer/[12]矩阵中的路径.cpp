@@ -14,7 +14,9 @@
 //输入：board = [["a","b"],["c","d"]], word = "abcd"
 //输出：false
 //
+#include <string>
 #include <vector>
+using std::string;
 using std::vector;
 
 class Solution {
