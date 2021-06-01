@@ -14,6 +14,27 @@ class Solution {
     // 奇数必返回 false
     if (s.size() % 2) return false;
     std::stack<char> stk;
+    std::unordered_map<char, char> table{{']', '['}, {'}', '{'}, {')', '('}};
+    for (const auto& ch : s) {
+      if (table.count(ch)) {
+        if (stk.empty() || table.find(ch) == table.end() ||
+            table[ch] != stk.top())
+          return false;
+        stk.pop();
+      } else {
+        stk.push(ch);
+      }
+    }
+    return stk.empty();
+  }
+};
+
+class Solution1 {
+ public:
+  bool isValid(string s) {
+    // 奇数必返回 false
+    if (s.size() % 2) return false;
+    std::stack<char> stk;
     std::unordered_map<char, char> table{{'[', ']'}, {'{', '}'}, {'(', ')'}};
     for (const auto& ch : s) {
       if (ch == '{' || ch == '(' || ch == '[') {
