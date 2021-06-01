@@ -1,6 +1,11 @@
 //
 // Created by liyingmin on 2020/3/29.
 //
+#include <algorithm>
+#include <string>
+#include <vector>
+using std::string;
+using std::vector;
 class Solution {
  public:
   int SubString(string text1, string text2) {
@@ -14,7 +19,7 @@ class Solution {
         if (text1[i - 1] == text2[j - 1]) {
           memo[i][j] = memo[i - 1][j - 1] + 1;
         } else {
-          memo[i][j] = max(memo[i - 1][j], memo[i][j - 1]);
+          memo[i][j] = std::max(memo[i - 1][j], memo[i][j - 1]);
         }
       }
     }
