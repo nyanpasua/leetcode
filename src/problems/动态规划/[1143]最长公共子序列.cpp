@@ -1,6 +1,9 @@
 //
 // Created by liyingmin on 2020/3/29.
-//
+// 最长公共子序列
+// 输入：text1 = "abcde", text2 = "ace"
+//输出：3
+//解释：最长公共子序列是 "ace" ，它的长度为 3 。
 #include <algorithm>
 #include <string>
 #include <vector>
