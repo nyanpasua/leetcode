@@ -5,8 +5,8 @@
 #ifndef LEETCODE_INCLUDE_LEETCODE_DATA_STRUCTURE_QUICKSORT3WAYS_H_
 #define LEETCODE_INCLUDE_LEETCODE_DATA_STRUCTURE_QUICKSORT3WAYS_H_
 
-std::pair<size_t, size_t> _partition3way(vector<int> &nums, size_t l,
-                                         size_t r) {
+std::pair<int, int> _partition3way(vector<int> &nums, int l,
+                                         int r) {
   size_t lt = l;
   size_t gt = r + 1;
   size_t i = l + 1;
@@ -21,10 +21,10 @@ std::pair<size_t, size_t> _partition3way(vector<int> &nums, size_t l,
     }
   }
   std::swap(nums[lt], nums[l]);
-  return std::pair<size_t, size_t>{lt, gt};
+  return std::pair<int, int>{lt, gt};
 }
 
-void _quickSort3Ways(vector<int> &nums, size_t l, size_t r) {
+void _quickSort3Ways(vector<int> &nums, int l, int r) {
   if (l >= r) {
     return;
   }

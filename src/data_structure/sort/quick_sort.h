@@ -5,7 +5,7 @@
 #ifndef LEETCODE_INCLUDE_LEETCODE_DATA_STRUCTURE_QUICKSORT_H_
 #define LEETCODE_INCLUDE_LEETCODE_DATA_STRUCTURE_QUICKSORT_H_
 
-size_t _partition(vector<int> &nums, size_t l, size_t r) {
+size_t _partition(vector<int> &nums, int l, int r) {
   size_t i = l + 1;
   size_t j = l;
   auto v = nums[l];
@@ -21,7 +21,7 @@ size_t _partition(vector<int> &nums, size_t l, size_t r) {
   return j;
 }
 
-void _quickSort(vector<int> &nums, size_t l, size_t r) {
+void _quickSort(vector<int> &nums, int l, int r) {
   if (l >= r) {
     return;
   }

@@ -9,7 +9,7 @@ using std::vector;
 
 template <typename T>
 // 对已经排序的区间[l, mid], [mid + 1， r]做merge
-void _merge(vector<T> nums, size_t l, size_t mid, size_t r) {
+void _merge(vector<T> nums, int l, int mid, int r) {
   // 创建临时空间，将nums相应的内容拷贝过来
   vector<T> temp;
   temp.resize(r - l + 1);
@@ -41,7 +41,7 @@ void _merge(vector<T> nums, size_t l, size_t mid, size_t r) {
 
 template <typename T>
 // 递归使用归并排序，对区间[begin_idx, end_idx]做归并
-void _mergeSort(vector<T> nums, size_t begin_idx, size_t end_idx) {
+void _mergeSort(vector<T> nums, int begin_idx, int end_idx) {
   // 递归到底，只有1个或者1个都没有的情况
   if (begin_idx >= end_idx) {
     return;
