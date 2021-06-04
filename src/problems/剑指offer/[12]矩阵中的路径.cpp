@@ -46,7 +46,7 @@ class Solution {
  private:
   bool dfs(const vector<vector<char>>& board, const string& word, int idx,
            int x, int y) {
-    // 保证进入即合法
+    // 保证进入即合法，这里相当于做了剪枝
     if (board[x][y] != word[idx]) return false;
     if (idx == word.size() - 1 && board[x][y] == word[idx]) return true;
     // <x, y> 还未到 word 边界, 做四方 dfs
