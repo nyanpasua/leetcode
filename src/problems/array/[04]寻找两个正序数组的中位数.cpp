@@ -108,6 +108,7 @@ class Solution1 {
         return std::min(nums1[idx1], nums2[idx2]);
       }
       // 正常情况
+      // 二分剩余的数字，为避免越界，这里取 min
       int new_idx1 = std::min(idx1 + k / 2 - 1, m - 1);
       int new_idx2 = std::min(idx2 + k / 2 - 1, n - 1);
       int pivot1 = nums1[new_idx1];
