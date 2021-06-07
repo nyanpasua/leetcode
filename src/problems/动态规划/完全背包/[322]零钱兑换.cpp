@@ -58,7 +58,7 @@
 using std::vector;
 #include <limits>
 
-/// 动态规划，类似剪绳子，容易搞成背包问题
+/// 动态规划，完全背包问题
 class Solution {
  public:
   int coinChange(vector<int>& coins, int amount) {
