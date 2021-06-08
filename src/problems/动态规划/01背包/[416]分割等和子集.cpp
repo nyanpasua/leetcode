@@ -107,7 +107,7 @@ class Solution1 {
     // memo矩阵
     size_t height = nums.size();
     vector<vector<bool>> memo(height, vector<bool>(capacity + 1, false));
-    // base case, memo[i][0]，capacity 为 0，因此都可以装满
+    // base case, memo[i][0]，capacity 为 0，因此都可以装满，相当于不选任何数即可满足
     for (size_t i = 0; i < height; ++i) {
       memo[i][0] = true;
     }
