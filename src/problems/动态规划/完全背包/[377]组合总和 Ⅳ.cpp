@@ -54,7 +54,10 @@ using std::vector;
 
 /// 完全背包
 // 注意，题目里虽然说是组合，实际上是求排列数量
-
+// 如果给定的数组中含有负数，则会导致出现无限长度的排列。
+//
+//如果允许负数出现，则必须限制排列的最大长度，避免出现无限长度的排列，才能计算排列数。
+//
 class Solution {
  public:
   int combinationSum4(vector<int>& nums, int target) {
