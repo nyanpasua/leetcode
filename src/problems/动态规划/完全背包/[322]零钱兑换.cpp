@@ -62,9 +62,9 @@ using std::vector;
 class Solution {
  public:
   int coinChange(vector<int>& coins, int amount) {
-    // 使用 coins 拼凑 j 需要的硬币个数 memo[j]
+    // 使用 coins 拼凑 j 需要的最少硬币个数 memo[j]
     std::vector<int> memo(amount + 1, std::numeric_limits<int>::max());
-    // base case
+    // base case，拼凑 0 只需要 0 个硬币
     memo[0] = 0;
     // 状态转移，这里我们采用外部循环是 amount，而内部循环是 coins
     // 因为这里 coins 的数量是无限的，不像分割等和子集那里 nums 是固定的
