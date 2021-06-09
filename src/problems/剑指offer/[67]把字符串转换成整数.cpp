@@ -53,6 +53,9 @@ class Solution {
     while (i < str.size()) {
       if (str[i] >= '0' && str[i] <= '9') {
         // 判断数值是否已经超过 int 范围
+        // 这里只使用了 7，而负数应该是 超过 8 才溢出，但实际上，超过 7 的负数，
+        // 就是最大值 -2147483648，直接返回 min 即可
+        // 超过 7 的正数肯定溢出了，直接返回 max 即可
         if (res > std::numeric_limits<int>::max() / 10 ||
             (res == std::numeric_limits<int>::max() / 10 && str[i] > '7')) {
           return sign == 1 ? std::numeric_limits<int>::max()

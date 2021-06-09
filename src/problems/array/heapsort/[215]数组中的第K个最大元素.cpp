@@ -22,6 +22,7 @@ class Solution {
  public:
   int findKthLargest(vector<int>& nums, int k) {
     // move-aware class
+    // 小根堆
     auto min_heap = std::priority_queue<int, vector<int>, std::greater<int>>();
     for (const auto& e : nums) {
       min_heap.emplace(e);
