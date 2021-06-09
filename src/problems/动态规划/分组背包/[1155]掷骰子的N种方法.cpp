@@ -59,6 +59,33 @@ class Solution {
   int numRollsToTarget(int d, int f, int target) {
     int mod = 1e9 + 7;
     // 扔 [0...d] 个筛子得到点数 [0...target] 的方案数
+    vector<int> dp(target + 1, 0);
+    // 0 个筛子 只能得到 点数 0，方案为 1
+    dp[0] = 1;
+    // i 是 筛子个数循环，也就是组循环
+    // j 是 目标 target 点数循环
+    // k 是 每组物品数量
+    for (int i = 1; i <= d; i++)
+      for (int j = target; j >= i; j--) {
+        // !! 注意这里需要置位
+        dp[j] = 0;
+        for (int k = 1; k <= std::min(f, j - i + 1); k++) {
+          dp[j] = (dp[j] + dp[j - k]) % mod;
+        }
+      }
+    return dp[target];
+  }
+};
+
+/// 分组背包
+// 分组01背包的组合问题
+// 如果所有物品被划分成 i 组，每组最多只能拿一个物品，
+// 对于这里，每个筛子就是一组，每组可以选不同的点数 f（一个物品）
+class Solution1 {
+ public:
+  int numRollsToTarget(int d, int f, int target) {
+    int mod = 1e9 + 7;
+    // 扔 [0...d] 个筛子得到点数 [0...target] 的方案数
     vector<vector<int>> dp(d + 1, vector<int>(target + 1, 0));
     // 0 个筛子 只能得到 点数 0，方案为 1
     dp[0][0] = 1;
