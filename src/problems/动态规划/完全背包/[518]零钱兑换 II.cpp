@@ -48,7 +48,7 @@
 #include <vector>
 using std::vector;
 
-/// 完全背包
+/// 完全背包，组合找方案数
 
 class Solution {
  public:
