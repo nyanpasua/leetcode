@@ -45,6 +45,7 @@ class Solution {
       memo[i] = i;
     }
     // 状态转移迭代
+    // 排列问题找最小值
     for (size_t i = 1; i <= n; ++i) {
       for (size_t j = 1; j * j <= i; ++j) {
         memo[i] = std::min(memo[i], memo[i - j * j] + 1);

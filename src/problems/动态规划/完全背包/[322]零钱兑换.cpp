@@ -68,6 +68,7 @@ class Solution {
     memo[0] = 0;
     // 状态转移，这里我们采用外部循环是 amount，而内部循环是 coins
     // 因为这里 coins 的数量是无限的，不像分割等和子集那里 nums 是固定的
+    // 排列问题找最小值
     for (int i = 1; i <= amount; ++i) {
       for (int j = 0; j < coins.size(); ++j) {
         if (coins[j] <= i) {

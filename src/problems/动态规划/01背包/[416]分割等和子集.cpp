@@ -55,6 +55,7 @@ class Solution {
       memo[c] = nums[0] == c ? true : false;
     }
     // 状态转移迭代
+    // 组合问题可行性，容量倒序，不能复用
     for (size_t i = 1; i < height; ++i) {
       // c >= nums[i]的时候才需要更新
       for (size_t c = capacity; c >= nums[i]; --c) {
@@ -85,6 +86,7 @@ class Solution2 {
       memo[c] = nums[0] == c ? true : false;
     }
     // 状态转移迭代
+    // 组合问题可行性
     for (size_t i = 1; i < height; ++i) {
       // 这里从 capacity-->1，因为需要使用上一轮循环的较小 index 的值
       // memo[c-nums[i]]
@@ -118,6 +120,7 @@ class Solution1 {
     // 状态转移迭代
     // memo[i - 1][c] 表示不使用第 i 个数 nums[i]
     // memo[i - 1][c - nums[i]] 表示使用第 i 个数 nums[i]
+    // 组合问题可行性
     for (size_t i = 1; i < height; ++i) {
       for (size_t c = 1; c <= capacity; ++c) {
         memo[i][c] =

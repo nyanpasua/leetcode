@@ -45,7 +45,7 @@ using std::vector;
 #include <string>
 using std::string;
 
-/// 01背包
+/// 多维01背包
 // 从集合中找到一组子集，使得子集满足 最多 m 个 0，n 个
 // 1，并且子集的元素个数最多。
 // 定义三维数组 dp，其中 dp[i][j][k] 表示在前 i
@@ -60,12 +60,45 @@ using std::string;
 // 2.如果选第 i
 // 个字符串，有dp[i][j][k]=dp[i-1][j-zeros][k-ones]+1，应取上面两项中的最大值。
 //
+
+
 class Solution {
+ private:
+  vector<int> get01pair(const string& str) {
+    vector<int> zero_one(2, 0);
+    int length = str.length();
+    for (int i = 0; i < length; i++) {
+      zero_one[str[i] - '0']++;
+    }
+    return zero_one;
+  }
+ public:
+
+  int findMaxForm(vector<string>& strs, int m, int n) {
+    int length = strs.size();
+    vector<vector<int>> dp(m + 1, vector<int>(n + 1));
+    // 多维费用的01背包
+    // 注意 j k 都是倒序
+    for (int i = 0; i < length; i++) {
+      vector<int>&& zerosOnes = get01pair(strs[i]);
+      int zeros = zerosOnes[0], ones = zerosOnes[1];
+      for (int j = m; j >= zeros; j--) {
+        for (int k = n; k >= ones; k--) {
+          dp[j][k] = std::max(dp[j][k], dp[j - zeros][k - ones] + 1);
+        }
+      }
+    }
+    return dp[m][n];
+  }
+};
+
+class Solution1 {
  public:
   int findMaxForm(vector<string>& strs, int m, int n) {
     // dp[0][j][k] 表示空集合里满足条件的子集，元素个数为 0
     vector<vector<vector<int>>> dp(
         strs.size() + 1, vector<vector<int>>(m + 1, vector<int>(n + 1, 0)));
+    // 组合问题最大值
     for (int i = 1; i <= strs.size(); ++i) {
       auto zero_one = get01pair(strs[i - 1]);
       int zeros = zero_one[0], ones = zero_one[1];

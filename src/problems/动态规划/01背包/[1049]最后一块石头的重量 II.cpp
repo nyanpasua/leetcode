@@ -55,6 +55,29 @@
 #include <vector>
 using std::vector;
 
+class Solution {
+ public:
+  int lastStoneWeightII(vector<int> &stones) {
+    int sum = accumulate(stones.begin(), stones.end(), 0);
+    int m = sum / 2;
+    vector<int> dp(m + 1);
+    dp[0] = true;
+    // 组合问题可行性
+    // 注意倒序，01背包，不可复用
+    for (int weight : stones) {
+      for (int j = m; j >= weight; --j) {
+        dp[j] = dp[j] || dp[j - weight];
+      }
+    }
+    for (int j = m;; --j) {
+      if (dp[j]) {
+        return sum - 2 * j;
+      }
+    }
+  }
+};
+
+
 /// 01背包
 // sum−2*neg = 0 --> neg = sum/2;
 // 问题转换为 neg 需要在不超过 ⌊sum/2⌋ 的前提下尽可能地大。
@@ -68,6 +91,7 @@ class Solution {
     int n = stones.size(), m = sum / 2;
     vector<vector<int>> dp(n + 1, vector<int>(m + 1));
     dp[0][0] = true;
+    // 组合问题可行性
     for (int i = 0; i < n; ++i) {
       for (int j = 0; j <= m; ++j) {
         if (j < stones[i]) {

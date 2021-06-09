@@ -64,6 +64,7 @@ class Solution {
     vector<int> dp(target + 1, 0);
     // 使用 nums 拼凑 0 的组合数量为 1
     dp[0] = 1;
+    // 排列问题求排列数量
     for (int i = 1; i <= target; i++) {
       for (int& num : nums) {
         if (num <= i && dp[i - num] < std::numeric_limits<int>::max() - dp[i]) {

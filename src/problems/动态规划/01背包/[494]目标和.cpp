@@ -52,13 +52,37 @@
 #include <vector>
 using std::vector;
 
+class Solution {
+ public:
+  int findTargetSumWays(vector<int>& nums, int target) {
+    int sum = 0;
+    for (int& num : nums) {
+      sum += num;
+    }
+    int diff = sum - target;
+    if (diff < 0 || diff % 2 != 0) {
+      return 0;
+    }
+    int neg = diff / 2;
+    vector<int> dp(neg + 1);
+    dp[0] = 1;
+    // 01背包，组合问题方案数，容量倒序，不能复用
+    for (int& num : nums) {
+      for (int j = neg; j >= num; j--) {
+        dp[j] += dp[j - num];
+      }
+    }
+    return dp[neg];
+  }
+};
+
 /// 01背包
 // 该问题可以转换为01背包问题，由于题目中给出 nums 为非负数，
 // 相当于 给一批数字 加上 - 号，使得 sum(nums) = target，
 // 也就是 sum - neg - neg = target，因此，
 // neg = (sum - target)/2，且 neg 必须为整数，因此 sum-target 必须为偶数
 // 因此问题转换为从 nums 里找到一组子集，使得其和为 neg，求满足条件的子集的数量
-class Solution {
+class Solution1 {
  public:
   int findTargetSumWays(vector<int>& nums, int target) {
     int sum = std::accumulate(nums.begin(), nums.end(), 0);
@@ -73,6 +97,7 @@ class Solution {
     dp[0][0] = 1;
 
     // 状态转移
+    // 组合问题方案数
     for (int i = 1; i <= nums.size(); ++i) {
       auto num = nums[i - 1];
       for (int j = 0; j <= neg; ++j) {
