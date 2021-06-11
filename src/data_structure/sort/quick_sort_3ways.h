@@ -10,6 +10,7 @@ std::pair<int, int> _partition3way(vector<int> &nums, int l,
   size_t lt = l;
   size_t gt = r + 1;
   size_t i = l + 1;
+  // 这里可以添加随机化
   auto v = nums[l];
   while (i < gt) {
     if (nums[i] == v) {
