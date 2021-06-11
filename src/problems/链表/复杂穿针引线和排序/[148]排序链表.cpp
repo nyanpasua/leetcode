@@ -96,11 +96,13 @@ class Solution {
       return head;
     }
     // 找mid和right
+    // mid 为左侧链表最后一个节点
     auto mid = FindMidNode(head);
+    // right 为右侧链表第一个节点
     auto right = mid->next;
-    // 断开mid左右两端
+    // 断开左右侧链表
     mid->next = nullptr;
-    // 递归Merge
+    // 递归 Merge，左侧链表 head，右侧链表 right
     return Merge(sortList(head), sortList(right));
 
   }
