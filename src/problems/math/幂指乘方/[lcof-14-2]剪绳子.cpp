@@ -1,6 +1,7 @@
 #include <cmath>
 
 // 大数求余： 快速幂求余
+// 与剪绳子1的最大区别在于数字会越界
 class Solution {
  public:
   int cuttingRope(int n) {

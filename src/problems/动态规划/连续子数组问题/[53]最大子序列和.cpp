@@ -17,11 +17,13 @@ class Solution {
     if (nums.size() == 1) {
       return nums[0];
     }
+    // 定义 memo[i] 为包含 nums[i] 的最大子序列和
     vector<int> memo(nums.size(), 0);
     // base case:
     memo[0] = nums[0];
     for (size_t i = 1; i < nums.size(); ++i) {
       if (memo[i - 1] > 0) {
+        // 如果上一个记忆和 > 0，则说明对 nums[i] 有正贡献
         memo[i] = memo[i - 1] + nums[i];
       } else {
         memo[i] = nums[i];
