@@ -50,6 +50,7 @@ class Solution {
     return j;
   }
   int quick_sort(vector<int>& nums, int l, int r, int k) {
+    if (l > r) return -1;
     // partition
     int p = partition(nums, l, r);
     // 根据 partition 结果递归 quick_sort
