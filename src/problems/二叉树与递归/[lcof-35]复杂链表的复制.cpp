@@ -64,6 +64,7 @@ class Solution {
     auto cur = head;
     while (cur != nullptr) {
       // 复制构建节点
+      // A1->B1->A2->B2->A3->B3->nullptr
       auto tmp = new Node(cur->val);
       auto next = cur->next;
       cur->next = tmp;
@@ -71,6 +72,7 @@ class Solution {
       cur = tmp->next;
     }
     cur = head;
+    // 复制 random 位置
     do {
       auto new_cur = cur->next;
       if (cur->random != nullptr) {

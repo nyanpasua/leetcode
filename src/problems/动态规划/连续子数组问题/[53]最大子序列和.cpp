@@ -22,12 +22,14 @@ class Solution {
     // base case:
     memo[0] = nums[0];
     for (size_t i = 1; i < nums.size(); ++i) {
-      if (memo[i - 1] > 0) {
-        // 如果上一个记忆和 > 0，则说明对 nums[i] 有正贡献
-        memo[i] = memo[i - 1] + nums[i];
-      } else {
-        memo[i] = nums[i];
-      }
+      //      if (memo[i - 1] > 0) {
+      //        // 如果上一个记忆和 > 0，则说明对 nums[i] 有正贡献
+      //        memo[i] = memo[i - 1] + nums[i];
+      //      } else {
+      //        memo[i] = nums[i];
+      //      }
+      // 上述代码可以简化为
+      memo[i] = std::max(memo[i - 1] + nums[i], nums[i]);
     }
     return *(std::max_element(memo.begin(), memo.end()));
   }
