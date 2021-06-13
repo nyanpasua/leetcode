@@ -83,7 +83,7 @@ class Solution1 {
   }
 };
 
-/// 滑动窗中做记录，会超时
+/// 滑动窗中做记录
 // 使用滑动窗，使用 vector<int>(128, 0)记录每个字符出现的次数
 class Solution {
  public:
@@ -112,6 +112,7 @@ class Solution {
 
  private:
   bool match_t() {
+    // 这里复杂度偏高，还是直接使用 hash map 比较合适
     for (int i = 0; i < 128; ++i) {
       if (table_[i] < t_table_[i]) return false;
     }
