@@ -35,6 +35,10 @@
 #include <vector>
 using std::vector;
 /// 排序 + 双指针
+// 由于此题的暴力解法需要 3 重循环，因此排序一次似乎完全可以接受
+// 排序后，外层循环 O(N)，内两层循环可以用双指针 O(N)
+// Time: O(N^2)
+// Space: O(1)，也有一说为排序需要 O(logN) 的空间复杂度
 class Solution {
  public:
   int threeSumClosest(vector<int>& nums, int target) {
