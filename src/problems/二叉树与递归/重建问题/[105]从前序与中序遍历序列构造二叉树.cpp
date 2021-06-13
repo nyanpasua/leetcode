@@ -64,13 +64,22 @@ class Solution {
                    boundary + 1, boundary + right_node_num + 1);
     return root;
   }
-  void build_map(const vector<int>& preorder, const vector<int>& inorder) {
+  // 这里建表的复杂度高了
+  void build_map_fake(const vector<int>& preorder, const vector<int>& inorder) {
     for (const auto& node : preorder) {
       auto it = std::find(inorder.cbegin(), inorder.cend(), node);
       assert(it != inorder.cend());
       // 建立从 root 到 boundary index 的 map
       // 如 <3, 1> <9, 0>
       root_boundary_[node] = (it - inorder.cbegin());
+    }
+  }
+  void build_map(const vector<int>& preorder, const vector<int>& inorder) {
+    size_t idx = 0;
+    for (const auto& node : inorder) {
+      // 建立从 root 到 boundary index 的 map
+      // 如 <3, 1> <9, 0>
+      root_boundary_[node] = idx++;
     }
   }
 
