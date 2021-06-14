@@ -25,6 +25,7 @@ class Solution {
     int l = 0;
     int r = numbers.size() - 1;  // [l...r]
     while (l < r) {
+      // 循环结束后，l 指向最小值
       int mid = l + (r - l) / 2;
       if (numbers[mid] > numbers[r]) {
         l = mid + 1;
