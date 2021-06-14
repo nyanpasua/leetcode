@@ -65,6 +65,8 @@ using std::vector;
 // 二分思路：记左侧为 l， 右侧位 r，二分中点为 mid，[l...r]
 // 1. 如果 nums[mid] > nums[r], 则 mid 一定属于左端序列，因此 l = mid + 1
 // 2. 如果 nums[mid] < nums[r], 则 mid 一定属于右端序列，因此 r = mid, [l...r]
+// Time: O(logN)
+// Space: O(1)
 class Solution {
  public:
   int search(vector<int>& nums, int target) {

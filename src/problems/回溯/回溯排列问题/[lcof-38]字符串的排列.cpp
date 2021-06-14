@@ -31,6 +31,7 @@ class Solution {
     if (index == s.size() - 1) {
       // 前面的字母都已经固定，因此直接返回
       res_.push_back(s);
+      return;
     }
     // set 存放在每一层递归内部，因为每一层都可能产生重复，需要保证每一层的
     // 固定唯一 如 aabc，如果 <b, aac> -> <a, ac> <a, ac> <c, aa>就会产生重复的
