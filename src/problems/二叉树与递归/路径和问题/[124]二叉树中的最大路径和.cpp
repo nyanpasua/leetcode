@@ -67,6 +67,7 @@ class Solution {
     auto length = root->val + left_len + right_len;
     max_len_ = std::max(max_len_, length);
     // 返回左或者右路径的最大值 + root->val
+    // 因为向上递归的路径 只能包含左或者右子树
     return root->val + std::max(left_len, right_len);
   }
   int max_len_{std::numeric_limits<int>::min()};
