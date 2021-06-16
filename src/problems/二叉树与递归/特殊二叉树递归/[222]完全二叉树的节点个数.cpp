@@ -83,6 +83,67 @@ class Solution {
  public:
   int countNodes(TreeNode* root) {
     if (root == nullptr) return 0;
+    auto level = depth(root);
+    int left = 1 << (level - 1);
+    int right = (1 << level) - 1;
+    while (left < right) {
+      // 这里 + 1 可以保证 最终 left 可以 == right
+      int mid = left + (right - left + 1) / 2;
+      if (exists(root, level - 1, mid)) {
+        // 第 mid 节点存在，节点数 >= mid
+        left = mid;
+      } else {
+        // 第 mid 节点不存在
+        right = mid - 1;
+      }
+    }
+    return left;
+  }
+
+ private:
+  bool exists(TreeNode* root, int level, int k) {
+    int bits = 1 << (level - 1);
+    TreeNode* node = root;
+    while (node != nullptr && bits > 0) {
+      if (!(bits & k)) {
+        node = node->left;
+      } else {
+        node = node->right;
+      }
+      bits >>= 1;
+    }
+    return node != nullptr;
+  }
+
+  int depth(TreeNode* root) {
+    int level = 0;
+    while (root != nullptr) {
+      root = root->left;
+      ++level;
+    }
+    return level;
+  }
+};
+
+/// 二分搜索
+// 如果是满二叉树，则节点个数为 2^h - 1
+// 如果最后一层只有 1 个节点，则节点个数为 2^(h - 1)
+// 因此只需在 [2^(h-1), 2^h -1] 之间二分判断
+// 如果 第 k 个 节点存在，则节点个数一定 >= k，向右侧进一步二分，反之向左侧
+// 如何判断第 k 个节点是否存在呢？
+// 假如 判断 第 5 和 6 个节点
+//     1
+//   /  \
+//  2    3
+// / \  /
+// 4 5  6
+// 5 的二进制表示为 00000101，后两位 0和1
+// 6 的二进制表示为 00000110，后两位 1和0
+// 0 表示移动到左子节点，1 表示移动到右子节
+class Solution2 {
+ public:
+  int countNodes(TreeNode* root) {
+    if (root == nullptr) return 0;
     if (root->left == nullptr && root->right == nullptr) return 1;
     auto level = depth(root);
     int left = 1 << (level - 1);
