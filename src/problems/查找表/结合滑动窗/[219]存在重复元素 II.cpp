@@ -36,14 +36,17 @@ using std::vector;
 class Solution {
  public:
   bool containsNearbyDuplicate(vector<int>& nums, int k) {
+    // 记录 nums[i] 对应的 index
     std::unordered_map<int, int> counter;
     for (size_t i = 0; i < nums.size(); ++i) {
       if (counter.find(nums[i]) != counter.end()) {
         if (i - counter[nums[i]] <= k) {
           return true;
         }
+        // 更新 nums[i] 的最新的 index 位置
         counter[nums[i]] = i;
       } else {
+        // 添加 nums[i] 对应的 index 到 map
         counter[nums[i]] = i;
       }
     }
