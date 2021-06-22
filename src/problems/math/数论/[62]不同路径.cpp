@@ -53,15 +53,36 @@
 #include <vector>
 using std::vector;
 
+/// 动态规划
+class Solution {
+ public:
+  int uniquePaths(int m, int n) {
+    vector<vector<int>> f(m, vector<int>(n));
+    for (int i = 0; i < m; ++i) {
+      f[i][0] = 1;
+    }
+    for (int j = 0; j < n; ++j) {
+      f[0][j] = 1;
+    }
+    for (int i = 1; i < m; ++i) {
+      for (int j = 1; j < n; ++j) {
+        f[i][j] = f[i - 1][j] + f[i][j - 1];
+      }
+    }
+    return f[m - 1][n - 1];
+  }
+};
+
 /// 数学方法
 // 需要向下 m-1, 向右 n-1
 // 组合问题，从 m+n-2 里面选 m-1 出来（或者从 m+n-2 里面选 n-1 出来）
-class Solution {
+class Solution1 {
  public:
   int uniquePaths(int m, int n) {
     if (m < n) {
       std::swap(m, n);
     }
+    // 这里很容易越界
     return combination(m + n - 2, n - 1) / combination(n - 1, n - 1);
   }
 
