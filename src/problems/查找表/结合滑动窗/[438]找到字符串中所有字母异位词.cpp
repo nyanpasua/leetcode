@@ -54,7 +54,7 @@
 using std::string;
 using std::vector;
 
-/// 滑动窗
+/// 滑动窗+hash
 class Solution {
  public:
   vector<int> findAnagrams(string s, string p) {
