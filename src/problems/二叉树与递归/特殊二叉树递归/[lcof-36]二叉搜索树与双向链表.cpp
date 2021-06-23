@@ -29,11 +29,13 @@ class Solution {
   Node* treeToDoublyList(Node* root) {
     if (root == nullptr) return root;
     inorder(root);
+    // 如果 cur_ 为空，即 节点数量 <= 1
     if (cur_ == nullptr) {
       head_->left = head_;
       head_->right = head_;
       return head_;
     }
+    // 修改 循环指针
     head_->left = cur_;
     cur_->right = head_;
     return head_;
@@ -41,6 +43,7 @@ class Solution {
 
  private:
   void inorder(Node* root) {
+    // 可以发现，在中序遍历的过程中，不会破坏二叉树的结构，保证了右子树访问的安全性
     if (root == nullptr) return;
     inorder(root->left);
     // do something
