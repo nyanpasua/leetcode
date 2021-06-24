@@ -13,12 +13,18 @@ class Solution {
  public:
   bool findNumberIn2DArray(vector<vector<int>>& matrix, int target) {
     if (matrix.empty() || matrix[0].empty()) return false;
+    // i 表示行，从矩阵最下面的行开始搜索
     int i = matrix.size() - 1;
+    // j 表示列，从第一列开始搜索
     int j = 0;
     while (i >= 0 && j <= matrix[0].size() - 1) {
+      // matrix[i][j] 是 第 j 列 最大的元素
+      // 是 第 i 行 最小的元素
       if (matrix[i][j] < target) {
+        // 删除第 j 列
         ++j;
       } else if (matrix[i][j] > target) {
+        // 删除第 i 行
         --i;
       } else {
         return true;
