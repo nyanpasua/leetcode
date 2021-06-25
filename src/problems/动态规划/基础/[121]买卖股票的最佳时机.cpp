@@ -62,8 +62,10 @@ class Solution {
   }
 };
 /// 使用动态规划思路
-/// 前i日最大利润=max(前(i−1)日最大利润,第i日价格−前i日最低价格)
-/// dp[i]=max(dp[i−1],prices[i]−min(prices[0:i]))
+// 某天买入，某天卖出，只能进行一次交易
+// 前i日最大利润=max(前(i−1)日最大利润,第i日价格−前i日最低价格)
+// 第i日价格−前i日最低价格 为 第 i 日完成交易可以获得的最大利润
+// dp[i]=max(dp[i−1],prices[i]−min(prices[0:i]))
 class Solution1 {
  public:
   int maxProfit(vector<int>& prices) {
