@@ -48,6 +48,7 @@ class Solution {
     temp = intervals[0];
     for (int i = 1; i < intervals.size(); ++i) {
       if (intervals[i][0] <= temp[1]) {
+        // [1,5] [2,4]，如果 2 <= 5，选择 max (5,4) 作为更新区间
         temp[1] = std::max(intervals[i][1], temp[1]);
       } else {
         res.push_back(temp);
