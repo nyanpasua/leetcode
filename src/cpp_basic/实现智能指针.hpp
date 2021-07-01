@@ -1,4 +1,6 @@
 
+#pragma once
+
 #include <algorithm>
 namespace alpha {
 // 实现的最大问题是，它的行为会让程序员非常容易犯错。
@@ -133,12 +135,21 @@ class shared_ptr {
       delete shared_count_;
     }
   }
-  /// 拷贝/移动构造：入参是 shared_ptr 类型
+  /// 拷贝/移动构造：入参是 const shared_ptr& 或者 shared_ptr&& 类型
   shared_ptr(const shared_ptr& other) {
     ptr_ = other.ptr_;
     if (ptr_) {
       other.shared_count_->add_count();
       shared_count_ = other.shared_count_;
+    }
+  }
+
+  shared_ptr(shared_ptr&& other) noexcept {
+    // 指针来判断是否能否完成转换
+    ptr_ = other.ptr_;
+    if (ptr_) {
+      shared_count_ = other.shared_count_;
+      other.ptr_ = nullptr;
     }
   }
 
@@ -155,6 +166,7 @@ class shared_ptr {
   // 隐式移动构造
   template <typename U>
   shared_ptr(shared_ptr<U>&& other) noexcept {
+    // 指针来判断是否能否完成转换
     ptr_ = other.ptr_;
     if (ptr_) {
       shared_count_ = other.shared_count_;
@@ -162,7 +174,8 @@ class shared_ptr {
     }
   }
 
-  /// 拷贝/移动赋值：重定义 operator =
+  /// 通用的拷贝/移动赋值：重定义 operator =
+  // 对左值和右值均有效，且避免了 &rhs != this 的判断
   shared_ptr& operator=(shared_ptr rhs) noexcept {
     rhs.swap(*this);
     return *this;
