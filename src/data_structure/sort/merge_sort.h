@@ -2,10 +2,10 @@
 // Created by liyingmin on 2020/1/5.
 //
 
-#ifndef LEETCODE_INCLUDE_LEETCODE_DATA_STRUCTURE_SORT_H_
-#define LEETCODE_INCLUDE_LEETCODE_DATA_STRUCTURE_SORT_H_
+#pragma once
 #include <vector>
 using std::vector;
+namespace alpha {
 
 template <typename T>
 // 对已经排序的区间[l, mid], [mid + 1， r]做merge
@@ -16,7 +16,8 @@ void _merge(vector<T> nums, int l, int mid, int r) {
   for (int i = l; i <= r; ++i) {
     temp[i - l] = nums[i];
   }
-  // merge过程，比较temp[0, middle]&[middle+1, r-l+1]区间的数据，放到nums区间[l, r]
+  // merge过程，比较temp[0, middle]&[middle+1, r-l+1]区间的数据，放到nums区间[l,
+  // r]
   int i = l, j = mid + 1;
   // 遍历temp[0, r-l+1]的数据，依次放入nums[k]
   for (int k = l; k <= r; ++k) {
@@ -35,9 +36,7 @@ void _merge(vector<T> nums, int l, int mid, int r) {
       ++j;
     }
   }
-
 }
-
 
 template <typename T>
 // 递归使用归并排序，对区间[begin_idx, end_idx]做归并
@@ -55,11 +54,10 @@ void _mergeSort(vector<T> nums, int begin_idx, int end_idx) {
   _merge(nums, begin_idx, mid, end_idx);
 }
 
-
 template <typename T>
 void MergeSort(vector<T> &nums) {
   // 对index: [0, nums.size() - 1]这个区间做mergeSort
   _mergeSort(nums, 0, nums.size() - 1);
 }
 
-#endif  // LEETCODE_INCLUDE_LEETCODE_DATA_STRUCTURE_SORT_H_
+}  // namespace alpha

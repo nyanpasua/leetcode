@@ -2,8 +2,11 @@
 // Created by liyingmin on 2020/3/30.
 //
 
-#ifndef LEETCODE_INCLUDE_LEETCODE_DATA_STRUCTURE_QUICKSORT3WAYS_H_
-#define LEETCODE_INCLUDE_LEETCODE_DATA_STRUCTURE_QUICKSORT3WAYS_H_
+#pragma once
+#include <algorithm>
+#include <vector>
+using std::vector;
+namespace alpha {
 
 std::pair<int, int> partition(vector<int> &nums, int l, int r) {
   // 对闭区 [l...r] 进行 partition 操作
@@ -45,4 +48,4 @@ void quick_sort(vector<int> &nums, int l, int r) {
 }
 
 void sort(vector<int> &nums) { quick_sort(nums, 0, nums.size() - 1); }
-#endif  // LEETCODE_INCLUDE_LEETCODE_DATA_STRUCTURE_QUICKSORT3WAYS_H_
+}  // namespace alpha

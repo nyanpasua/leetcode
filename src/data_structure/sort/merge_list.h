@@ -1,9 +1,12 @@
 //
 // Created by liyingmin on 2020/3/26.
 //
+#pragma once
+#include <algorithm>
+#include <vector>
+using std::vector;
 
-#ifndef LEETCODE_INCLUDE_LEETCODE_DATA_STRUCTURE_MERGELIST_H_
-#define LEETCODE_INCLUDE_LEETCODE_DATA_STRUCTURE_MERGELIST_H_
+namespace alpha {
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -49,8 +52,8 @@ class Solution {
     auto ret = dummy_ret->next;
     delete dummy_ret;
     return ret;
-
   }
+
  public:
   ListNode* sortList(ListNode* head) {
     // 递归到底，只剩1个node的时候
@@ -64,9 +67,7 @@ class Solution {
     mid->next = nullptr;
     // 递归Merge
     return Merge(sortList(head), sortList(right));
-
   }
 };
 
-
-#endif  // LEETCODE_INCLUDE_LEETCODE_DATA_STRUCTURE_MERGELIST_H_
+}  // namespace alpha

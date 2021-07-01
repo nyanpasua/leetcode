@@ -2,8 +2,11 @@
 // Created by liyingmin on 2020/3/30.
 //
 
-#ifndef LEETCODE_INCLUDE_LEETCODE_DATA_STRUCTURE_QUICKSORT_H_
-#define LEETCODE_INCLUDE_LEETCODE_DATA_STRUCTURE_QUICKSORT_H_
+#pragma once
+#include <algorithm>
+#include <vector>
+using std::vector;
+namespace alpha {
 
 size_t partition(vector<int> &nums, int l, int r) {
   // 对闭区 [l...r] 进行 partition 操作
@@ -55,7 +58,6 @@ size_t partition2(vector<int> &nums, int l, int r) {
   return j;
 }
 
-
 void quick_sort(vector<int> &nums, int l, int r) {
   // 对闭区间 [l...r] 进行快速排序，2 路
   if (l >= r) {
@@ -67,4 +69,4 @@ void quick_sort(vector<int> &nums, int l, int r) {
 }
 
 void sort(vector<int> &nums) { quick_sort(nums, 0, nums.size() - 1); }
-#endif  // LEETCODE_INCLUDE_LEETCODE_DATA_STRUCTURE_QUICKSORT_H_
+}  // namespace alpha
