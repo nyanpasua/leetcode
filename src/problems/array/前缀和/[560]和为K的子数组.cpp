@@ -17,8 +17,8 @@
 // 👍 960 👎 0
 
 // leetcode submit region begin(Prohibit modification and deletion)
-#include <vector>
 #include <unordered_map>
+#include <vector>
 using std::unordered_map;
 using std::vector;
 
@@ -27,13 +27,18 @@ class Solution {
  public:
   int subarraySum(vector<int>& nums, int k) {
     // 记录 前缀和 sum -> 个数 的 hash 表
-    unordered_map<int,int> m;
+    unordered_map<int, int> m;
     int sum = 0;
     int count = 0;
     m[0] = 1;  // 空数组和为 0
+    // 遍历数组，更新 [0...i] 的前缀和 sum；
+    // 如果 m.count(sum - k) 不为 0，说明 又有 m[sum-k] 个 连续子序列
+    // 满足条件；（sum更新后，之前前缀和为 sum-k 的前缀末端与现在的 i
+    // 组成满足条件的子序列）；
+    // 更新 m[sum]++；
     for (int i = 0; i < nums.size(); ++i) {
       sum += nums[i];
-      if (m.count(sum - k)) count += m[sum-k];
+      if (m.count(sum - k)) count += m[sum - k];
       ++m[sum];
     }
     return count;

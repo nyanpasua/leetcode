@@ -63,7 +63,9 @@ class Solution {
       if (res > std::numeric_limits<int>::max() / 10 ||
           res < std::numeric_limits<int>::min() / 10)
         return 0;
+      // 最大值 2147483647
       if (res == std::numeric_limits<int>::max() / 10 && digit > 7) return 0;
+      // 最小值 -2147483648
       if (res == std::numeric_limits<int>::min() / 10 && digit < -8) return 0;
       res = res * 10 + digit;
       x /= 10;

@@ -16,6 +16,7 @@
  */
 
 // 中序遍历递增
+// 因此 right root left 这样就是递减
 class Solution {
  public:
   int kthLargest(TreeNode* root, int k) {

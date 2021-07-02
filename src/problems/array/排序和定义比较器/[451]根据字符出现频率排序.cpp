@@ -51,6 +51,12 @@
 // 👍 255 👎 0
 
 // leetcode submit region begin(Prohibit modification and deletion)
+#include <string>
+#include <vector>
+#include <unordered_map>
+using std::string;
+using std::vector;
+
 class Solution {
  public:
   string frequencySort(string s) {

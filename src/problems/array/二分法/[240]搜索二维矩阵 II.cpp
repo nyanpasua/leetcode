@@ -43,6 +43,8 @@
 // 👍 651 👎 0
 
 // leetcode submit region begin(Prohibit modification and deletion)
+/// 二分查找
+// 从左下角开始搜索，一次删除一行或者一列
 class Solution {
  public:
   bool searchMatrix(vector<vector<int>>& matrix, int target) {
