@@ -44,7 +44,9 @@
 // leetcode submit region begin(Prohibit modification and deletion)
 #include <algorithm>
 #include <string>
+#include <vector>
 using std::string;
+using std::vector;
 class Solution {
  public:
   int longestValidParentheses(string s) {
