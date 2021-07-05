@@ -7,6 +7,10 @@
 #include <stack>
 using std::vector;
 
+/// 后序遍历
+// [left, right, root]
+// 因此，对于一个输入序列，其 root 为最右侧 idx，设为 root；
+// 其左侧开始为 right 子树，需要找到 left 子树的最后一个 idx；
 class Solution1 {
  public:
   bool verifyPostorder(vector<int>& postorder) {
@@ -19,10 +23,14 @@ class Solution1 {
     auto root = postorder[r];
     auto child = r;
     while (l <= child) {
+      // 寻找左子树，循环结束时，child 为左子树最后一个 idx 或者
+      // 越界索引为 l-1 （全是右子树）
       --child;
+      // 这里的 >= 0 是为了防止 postorder 数组访问越界
       if (child >= 0 && postorder[child] < root) break;
     }
     if (check(postorder, l, child, r)) {
+      // 递归左子树和右子树
       return recursion(postorder, l, child) &&
              recursion(postorder, child + 1, r - 1);
     } else
@@ -33,7 +41,8 @@ class Solution1 {
       // 全是右子树节点
       return true;
     }
-    for (int i = l; i < child; ++i) {
+    for (int i = l; i <= child; ++i) {
+      // 核心判断，左子树 [l...child] 都应该 < root
       if (postorder[i] >= postorder[r]) return false;
     }
     return true;

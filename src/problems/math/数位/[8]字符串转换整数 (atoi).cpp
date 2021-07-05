@@ -138,6 +138,7 @@ class Solution {
       ++i;
     }
     // 判断符号位
+    // 下面循环用 if 即可
     while (i < str.size() && (str[i] == '-' || str[i] == '+')) {
       if (str[i] == '-') sign = -1;
       ++i;

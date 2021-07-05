@@ -30,7 +30,7 @@ class Solution1 {
           // 最大值一定出现在这里
           if (dp[i][j] > max_len) max_end = i;
         } else {
-          dp[i][j] = max(dp[i - 1][j], dp[i][j - 1]);
+          dp[i][j] = std::max(dp[i - 1][j], dp[i][j - 1]);
         }
         max_len = std::max(dp[i][j], max_len);
       }

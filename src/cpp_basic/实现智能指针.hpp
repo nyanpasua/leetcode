@@ -193,6 +193,7 @@ class shared_ptr {
   /// pointer-like function
   T& operator*() const noexcept { return *ptr_; }
   T* operator->() const noexcept { return ptr_; }
+  // 隐式类型转换 bool
   operator bool() const noexcept { return ptr_; }
   T* get() const noexcept { return ptr_; }
   long use_count() const noexcept {
