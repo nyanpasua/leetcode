@@ -84,7 +84,7 @@ class Solution {
 // 因此本问题可以看作是背包容量为 ⌊sum/2⌋，物品重量和价值均为 stones 的 0-1
 // 背包问题。
 //
-class Solution {
+class Solution1 {
  public:
   int lastStoneWeightII(vector<int>& stones) {
     int sum = std::accumulate(stones.begin(), stones.end(), 0);
