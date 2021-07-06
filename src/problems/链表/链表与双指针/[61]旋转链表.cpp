@@ -64,7 +64,7 @@ class Solution {
     // 成环
     p->next = head;
     // 移动 n - k%n 个位置
-    for (int i = 0; i < n - k % n; i++) {
+    for (int i = 0; i < n - (k % n); i++) {
       p = p->next;
       head = head->next;
     }

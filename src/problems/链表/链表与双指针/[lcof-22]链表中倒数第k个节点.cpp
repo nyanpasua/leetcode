@@ -10,7 +10,7 @@
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
-/// 采用快慢指针，满指针不动，先让快指针走 k
+/// 采用快慢指针，慢指针不动，先让快指针走 k
 /// 步，然后一起走，快指针到末尾，停止，返回慢指针
 /// Time: O(n) Space: O(1)
 class Solution {
