@@ -44,7 +44,7 @@
 using std::string;
 using std::vector;
 
-///
+/// 回溯 + 剪枝
 class Solution {
  public:
   vector<string> ans;  //此时不会重复搜索 无重复方案 直接存即可
