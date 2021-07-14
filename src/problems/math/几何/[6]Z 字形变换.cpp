@@ -55,6 +55,8 @@
 // 👍 1208 👎 0
 
 // leetcode submit region begin(Prohibit modification and deletion)
+/// 几何
+// 逐行添加
 class Solution {
  public:
   string convert(string s, int numRows) {
@@ -62,11 +64,15 @@ class Solution {
 
     string ret;
     int n = s.size();
+    // 这里这个规律需要分析，对于每行，都会存在这个位置的字符添加
     int cycleLen = 2 * numRows - 2;
 
     for (int i = 0; i < numRows; i++) {
       for (int j = 0; j + i < n; j += cycleLen) {
         ret += s[j + i];
+        // 除了第一行和最后一行，存在 j + cycleLen - i 位置的添加可能
+        // 举个例子，s = "PAYPALISHIRING", numRows = 4
+        // 对于 第 2 行，i = 1，idx : 1:A, 0+6-1:L, 7:S...
         if (i != 0 && i != numRows - 1 && j + cycleLen - i < n)
           ret += s[j + cycleLen - i];
       }
