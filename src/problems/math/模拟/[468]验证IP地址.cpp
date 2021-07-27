@@ -73,7 +73,10 @@
 // leetcode submit region begin(Prohibit modification and deletion)
 
 #include <algorithm>
+#include <charconv>
+#include <optional>
 #include <string>
+#include <string_view>
 #include <unordered_set>
 #include <vector>
 using std::string;
@@ -94,8 +97,7 @@ class Solution {
 
  private:
   string validateIPv6(const string& ip) {
-    auto sv = split(ip, ":");
-    vector<string> nums(sv.begin(), sv.end());
+    auto nums = split(ip, ":");
     if (nums.size() != 8) return "Neither";
     std::unordered_set<char> hexdigits{'0', '1', '2', '3', '4', '5', '6', '7',
                                        '8', '9', 'a', 'b', 'c', 'd', 'e', 'f',
@@ -112,8 +114,7 @@ class Solution {
     return "IPv6";
   }
   string validateIPv4(const string& ip) {
-    auto sv = split(ip, ".");
-    vector<string> nums(sv.begin(), sv.end());
+    auto nums = split(ip, ".");
     if (nums.size() != 4) return "Neither";
     for (const auto& x : nums) {
       // Validate integer in range (0, 255):
@@ -126,18 +127,18 @@ class Solution {
         if (!std::isdigit(ch)) return "Neither";
       }
       // 4. less than 255
-      if (std::stoi(x) > 255) return "Neither";
+      if (svtoi(x) > 255) return "Neither";
     }
     return "IPv4";
   }
-  std::vector<std::string_view> split(std::string_view strv,
-                                      std::string_view delims = " ") {
+  static std::vector<std::string_view> split(std::string_view strv,
+                                             std::string_view delims = " ") {
     std::vector<std::string_view> output;
     size_t first = 0;
 
     while (first < strv.size()) {
       const auto second = strv.find_first_of(delims, first);
-
+      // 这里会避免空字符串，和 Java 中 Split 方法不同
       if (first != second)
         output.emplace_back(strv.substr(first, second - first));
 
@@ -147,6 +148,16 @@ class Solution {
     }
 
     return output;
+  }
+  static std::optional<int> svtoi(const std::string_view& input) {
+    int out;
+    const std::from_chars_result result =
+        std::from_chars(input.data(), input.data() + input.size(), out);
+    if (result.ec == std::errc::invalid_argument ||
+        result.ec == std::errc::result_out_of_range) {
+      return std::nullopt;
+    }
+    return out;
   }
 };
 // leetcode submit region end(Prohibit modification and deletion)

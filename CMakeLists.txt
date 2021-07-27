@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.1)
 # 项目名称
 project(leetcode)
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 option(RELEASE_LIB "build version of release" OFF)
 
 # 编译模式
