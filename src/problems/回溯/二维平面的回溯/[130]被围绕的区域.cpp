@@ -41,6 +41,7 @@
 
 // leetcode submit region begin(Prohibit modification and deletion)
 #include <vector>
+#include <string>
 using std::vector;
 
 /// dfs
